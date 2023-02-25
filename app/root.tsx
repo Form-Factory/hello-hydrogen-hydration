@@ -14,6 +14,7 @@ import {
 import type {Shop} from '@shopify/hydrogen/storefront-api-types';
 import styles from './styles/app.css';
 import favicon from '../public/favicon.svg';
+import {createHead} from 'remix-island';
 
 export const links: LinksFunction = () => {
   return [
@@ -40,17 +41,21 @@ export async function loader({context}: LoaderArgs) {
   return {layout};
 }
 
+export const Head = createHead(() => (
+  <>
+    <Meta />
+    <Links />
+  </>
+));
+
 export default function App() {
   const data = useLoaderData<typeof loader>();
 
   const {name} = data.layout.shop;
 
   return (
-    <html lang="en">
-      <head>
-        <Meta />
-        <Links />
-      </head>
+    <>
+      <Head />
       <body>
         <h1>Hello, {name}</h1>
         <p>This is a custom storefront powered by Hydrogen</p>
@@ -58,7 +63,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
       </body>
-    </html>
+    </>
   );
 }
 
