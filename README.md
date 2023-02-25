@@ -1,42 +1,9 @@
-# Hydrogen template: Hello World
+This is a temporary fix to alleviate the hydration problems caused by client-side DOM manipulation by 3rd party scripts / extensions that can cause Styled Components to fail on React 18.2 flavors of Remix.
 
-Hydrogen is Shopify’s stack for headless commerce. Hydrogen is designed to dovetail with [Remix](https://remix.run/), Shopify’s full stack web framework. This template contains a **minimal setup** of components, queries and tooling to get started with Hydrogen.
+Based on [@kiliman's](https://github.com/kiliman) [initial fix](https://github.com/remix-run/remix/discussions/5244#discussioncomment-4832036), wrapped into [remix-island](https://github.com/Xiphe/remix-island) by [@Xiphe](https://github.com/Xiphe) and [adapted for readableStreams](https://github.com/remix-run/remix/discussions/5244#discussioncomment-4890083) by [@clgeoio](https://github.com/clgeoio)
 
-[Check out Hydrogen docs](https://shopify.dev/custom-storefronts/hydrogen)
-[Get familiar with Remix](https://remix.run/docs/en/v1)
-
-## What's included
-
-- Remix
-- Hydrogen
-- Oxygen
-- Shopify CLI
-- ESLint
-- Prettier
-- GraphQL generator
-- TypeScript and JavaScript flavors
-- Minimal setup of components and routes
-
-## Getting started
-
-**Requirements:**
-
-- Node.js version 16.14.0 or higher
-
-```bash
-npm create @shopify/hydrogen@latest --template hello-world
-```
-
-Remember to update `.env` with your shop's domain and Storefront API token!
-
-## Building for production
-
-```bash
-npm run build
-```
-
-## Local development
-
-```bash
-npm run dev
-```
+More information:
+- https://github.com/remix-run/remix/issues/5569
+- https://github.com/remix-run/remix/discussions/5244
+- [Remix Roadmap Discussion](https://www.youtube.com/live/tdVFZidXGZo?feature=share&t=2972)
+- https://github.com/facebook/react/issues/24430
