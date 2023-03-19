@@ -1,0 +1,26 @@
+name: Add Label and Review PR
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+jobs:
+  label-and-review:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Add Review label
+      if: github.event.pull_request.draft == false
+      uses: actions-ecosystem/action-add-labels@v1
+      with:
+        labels: 'needs review'
+
+    - name: Request reviews
+      if: github.event.pull_request.draft == false
+      uses: peter-evans/create-pull-request-review-request@v2
+      with:
+        reviewers: user1, user2, user3, user4
+        team-reviewers: ''
+        assignees: ''
+        label: ''
+        comment: ''
